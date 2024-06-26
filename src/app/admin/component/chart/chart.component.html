@@ -1,0 +1,11 @@
+<app-header (sendData)="handleData($event)"></app-header>
+
+<div class="wrapper"  [class.close]="isclose">
+    <div class="content">
+        <div class="chart-container" *ngFor="let valueChart of valueCharts">
+            <div class="bar" [style.height.%]="valueChart.value">{{valueChart.value+'%'}}</div>
+            <p class="title-post">{{valueChart.title}}</p>
+        </div>
+    </div>
+</div>
+

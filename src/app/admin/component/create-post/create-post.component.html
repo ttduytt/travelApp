@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<div class="wrapper">
+    <div class="content" [formGroup]="postForm">
+        
+            <div class="title_post">
+                <label for="">nhập tiêu đề bài viết</label>
+                <input type="text" id="" name="title"    formControlName="title">
+            </div>
+            <div class="avatar_post">
+                <label for="">chọn ảnh bài viết</label>
+                <input type="file" name="" id=""  formControlName="avatar">
+                <img [src]="imageUrl" *ngIf="imageUrl" alt="Preview Image" style="max-width: 300px;">
+            </div>
+            <div class="category_post">
+                <label for="">chọn loại bài viết</label>
+                <select formControlName="category" id="">
+                    <option *ngFor="let category of categorys" [value]="category.category">{{category.category}}</option>
+                </select>
+            </div>
+            <div class="content_post">
+                
+                <ckeditor formControlName="content" [editor]="Editor" data="<p>nhập nội dung</p>"></ckeditor>
+    
+            </div>
+    
+            <div class="btadd">
+                <button type="button"  (click)="createPost()">create post</button>
+            </div>
+        </div>
+ 
+</div>
+
+
+

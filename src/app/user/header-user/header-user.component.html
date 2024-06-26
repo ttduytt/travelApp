@@ -1,0 +1,141 @@
+<body>
+    <header>
+        <div class="content_head">
+            <ul class="list_content_head">
+                <li class="logo"><a href="#"><img src="../../../assets/8b4635fd93dc6e874f686435da83a210.jpg" alt="Logo"></a></li>
+                <li class="dropdown">
+                    <a class="item_head_content" href="#">Places to go</a>
+                    <div class="dropdown-content">
+                        <div class="container_place_to_go">
+                          <div class="wrapper_region">
+                            <div class="region-content">
+                                <div class="region">
+                                    <div class="region-header">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6BdSeG2Ff0qbpnKk8eHn6GgqGFQAvzJgoA&s" alt="Northern Vietnam">
+                                        <div class="title_region">NORTHERN VIETNAM</div>
+                                        <div class="region_place">HA NOI</div>
+                                    </div>
+                                  
+                                </div>
+                                <div class="region">
+                                    <div class="region-header">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6BdSeG2Ff0qbpnKk8eHn6GgqGFQAvzJgoA&s" alt="Central Vietnam">
+                                        <div class="title_region">CENTRAL VIETNAM</div>
+                                        <div class="region_place">DA NANG</div>
+                                    </div>
+                                
+                                </div>
+                                <div class="region">
+                                    <div class="region-header">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6BdSeG2Ff0qbpnKk8eHn6GgqGFQAvzJgoA&s" alt="Southern Vietnam">
+                                        <div class="title_region">SOUTHERN VIETNAM</div>
+                                        <div class="region_place">HO CHI MINH CITY</div>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            <div class="region-post">
+                                <ul class="list_place">
+                                    <li *ngFor="let placePost of placePosts"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg><a  [routerLink]="['/content/post',placePost.title]"  [state]="{data:placePost}">{{placePost.title}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                          <div class="map_place"><img src="https://media.cungphuot.info/2016/06/21022/ban-do-du-lich-tay-thien.png" alt=""></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a class="item_head_content" href="#">Things to do</a>
+                    <div class="dropdown-content">
+                        <div class="container_thing_to_do">
+                            <div class="highlights">
+                                <div class="title_item">HIGHLIGHTS</div>
+                                <ul >
+                                    <li *ngFor="let hightLightPost of hightLightPosts"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg><a [routerLink]="['/content/post', hightLightPost.title]" [state]="{data:hightLightPost}">{{hightLightPost.title}}</a></li>
+                                </ul>
+                            </div>
+                            <div class="holidays">
+                                <div class="title_item">HOLIDAYS</div>
+                                <ul>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>Adventure</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>Wellness</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>Family</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>Luxury</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>Golf</li>
+                                </ul>
+                            </div>
+                            <div class="events">
+                                <div class="title_item">UPCOMING FESTIVALS & EVENTS</div>
+                                <div class="event">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6BdSeG2Ff0qbpnKk8eHn6GgqGFQAvzJgoA&s"  alt="Hue Festival">
+                                    <div class="event-details">
+                                        <h3>HUE FESTIVAL 2024</h3>
+                                        <p>01 Jan 2024 - 31 Dec 2024</p>
+                                    </div>
+                                </div>
+                                <div class="event">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6BdSeG2Ff0qbpnKk8eHn6GgqGFQAvzJgoA&s"  alt="Ho Chi Minh City River Festival">
+                                    <div class="event-details">
+                                        <h3>HO CHI MINH CITY RIVER FESTIVAL 2024</h3>
+                                        <p>31 May 2024 - 10 Jun 2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a class="item_head_content" href="#">Plan your trip</a>
+                    <div class="dropdown-content">
+                        <div class="container_plan_your_trip">
+                            <div class="sidebar">
+                                <ul>
+                                    <li>Visa Requirements</li>
+                                    <li>E-visa Applications</li>
+                                    <li>Getting to Vietnam</li>
+                                    <li>Getting Around Vietnam</li>
+                                    <li>Health & Safety</li>
+                                    <li>Vietnamese Phrases</li>
+                                </ul>
+                            </div>
+                            <div class="main-content">
+                                <ul class="itineraries">
+                                     <h2>ITINERARIES</h2>
+                                    <li><a href="#">Adventure Trails</a></li>
+                                    <li><a href="#">Best Heritage Sites</a></li>
+                                    <li><a href="#">Coast and Islands</a></li>
+                                    <li><a href="#">View all trips</a></li>
+                                </ul>
+                                <div class="images">
+                                    <div class="image">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6BdSeG2Ff0qbpnKk8eHn6GgqGFQAvzJgoA&s" alt="Adventure Trails">
+                                        <div class="overlay">Adventure Trails</div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6BdSeG2Ff0qbpnKk8eHn6GgqGFQAvzJgoA&s" alt="Best Heritage Sites">
+                                        <div class="overlay">Best Heritage Sites</div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6BdSeG2Ff0qbpnKk8eHn6GgqGFQAvzJgoA&s" alt="Coast and Islands">
+                                        <div class="overlay">Coast and Islands</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </li>
+                <li><a routerLink="/post/all">Xem nhiều nhất</a></li>
+                <li><a href="#">Travel offers</a></li>
+            </ul>
+            <div class="right">
+                <span class="language-selector">EN <span class="arrow">▼</span></span>
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+    </header>
+
+  
+</body>
+
+

@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<div class="wrapper">
+    <div class="content">
+        <div class="search-container">
+            <label for="search">Search:</label>
+            <input type="text" id="search" class="search-input" placeholder="Enter search term..." (input)="filterTable()">
+        </div>
+        <table id="dataTable">
+          <thead>
+              <tr>
+                  <th>Id bài viết</th>
+                  <th>tiêu đề</th>
+                  <th>thể loại</th>
+                  <th>ngày tạo</th>
+                  <th>ảnh</th>
+                  <th>Sửa</th>
+                  <th>Xóa</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let post of posts | paginate: { itemsPerPage: 5, currentPage: page }">
+                <td>{{ post._id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.category }}</td>
+                <td>{{post.createdAt | date: 'dd/MM/yy'}}</td>
+                <td><img width="80px" [src]="post.avatar" alt="Post Image"></td>
+                <td><button class="btn btn-success" routerLink="/post/formUpdate" [state]="{post}">SỬA</button></td>
+                <td><button class="btn btn-danger" (click)="post._id && deletePost(post._id)">XÓA</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination-controls">
+          <pagination-controls class="pagination-spreads" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
+        </div>
+        <!-- <div class="pagination">
+          <a href="#">&laquo; Previous</a>
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">Next &raquo;</a>
+        </div> -->
+        
+      </div>
+</div>
+

@@ -1,0 +1,40 @@
+<app-header (sendData)="handleData($event)"></app-header>
+
+<div class="wrapper" [class.dark]="isdark" [class.close]="isclose">
+    <div class="content">
+        <div class="search-container">
+            <label for="search">Search:</label>
+            <input type="text" id="search" class="search-input" placeholder="Enter search term...">
+        </div>
+        <table>
+          <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Tiêu đề</th>
+                  <th>Thể loại</th>
+                  <th>Tổng điểm</th>
+                  <th>Số lượt đánh giá</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Statistic of Statistics">
+                <td>{{ Statistic.id_post }}</td>
+                <td>{{ Statistic.title }}</td>
+                <td>{{ Statistic.category }}</td>
+                <td>{{ Statistic.totalPoinrating }}</td>
+                <td>{{ Statistic.count }}</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="pagination">
+          <a href="#">&laquo; Previous</a>
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">Next &raquo;</a>
+        </div>
+        
+      </div>
+</div>
+

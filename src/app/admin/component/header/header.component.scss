@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box; /* Padding và border được tính vào kích thước tổng cộng */
+}
+
+.header{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    background-color: #fafbfc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 1000;
+}
+
+
+// css logo
+.header_logo{
+    height: 100%;
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_logo:first-child{
+  padding-left: 25px;
+}
+
+.logo{
+    font-family: 'Brush Script MT', cursive;
+    font-size: 28px;
+    color: #000;
+    margin: 0;
+}
+
+.bt_control_sidebar{
+    cursor: pointer;
+    height: 30px;
+    padding-right: 25px;
+}
+.bt_control_sidebar>*{
+    height: 100%;
+    width: 100%;
+}
+
+// css main header
+.header_main{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_left{
+    display: flex;
+    width: 50%;
+}
+
+.search_box{
+    height: 75%;
+    border-radius: 33px;
+    background-color: #edeeef;
+    width: 100%;
+    padding-left: 20px;
+    border: none;
+    padding-right: 50px;
+}
+.header_left_content{
+    display: flex;
+    width: 70%;
+    height: 100%;
+    position: relative;
+    align-items: center;
+    margin-left: 45px;
+}
+
+.bt_search{
+    height: 72%;
+    width: 45px;
+    border-radius: 22px;
+    background-color: #dfe0e1;
+    position: absolute;
+    right: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bt_search>*{
+    width: 50%;
+    height: 50%;
+    fill: #1558d7;
+}
+
+// css header right
+.header_right{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding-left: 350px;
+}
+
+.about_admin{
+   background: url('https://gamek.mediacdn.vn/133514250583805952/2023/8/24/3-16928494741241756542245-1692861245213-1692861245347305558431.png') no-repeat;
+   background-size: cover;
+    height: 80%;
+    width: 48px;
+    border-radius: 24px;
+}
+
+.logo_notification{
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.logo_notification >ul>li{
+    list-style: none;
+    height: 100%;
+    width: 50px;
+    border-radius: 24px;
+}
+
+.logo_notification >ul{
+    height: 80%;
+    margin-bottom: 0;
+    display: flex;
+    padding: 0;
+}
+
+
+.line{
+    height: 70%;
+    width: 2px;
+    background-color: black;
+    margin: 0 30px;
+}
+
+.notification{
+    background-color: black;
+    margin-right: 30px;
+}
+
+.language{
+    background-color: pink;
+}
+
+// css navbar
+
+.navbar{
+    display: block;
+    width: 300px;
+    background-color: #ffffff;
+    position: fixed;
+    overflow-x: hidden;
+    transform: translateX(0);
+    transition: transform 1s ease;
+    top: 60px;
+}
+
+.navbar_content{
+    height: 90vh;
+    overflow: scroll;
+}
+
+.navbar.close{
+    transform: translateX(-100%);
+}
+
+.title{
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #0057d3;
+    font-weight: 700;
+
+}
+
+.lis_manager{
+    padding-left: 12px;
+
+}
+
+.lis_manager >li{
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 400;
+    list-style: none;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 5px 0 5px 10px;
+}
+
+.lis_manager >li:hover{
+    background-color: #e0f3ff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.icon_item{
+    width: 20px;
+    margin-right: 10px;
+    
+}
+
+.darkmode {
+    background-color: #202124;
+  
+}
+.darkmode * {
+    color: #e3e3e3;
+    fill: white;
+}
+
+.darkmode .lis_manager >li:hover{
+    background-color: #3c4043;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+

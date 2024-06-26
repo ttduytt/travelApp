@@ -1,0 +1,38 @@
+
+<app-header-user></app-header-user>
+   <div class="wrapper" >
+    <img class="img_avatar" *ngIf="post.avatar" [src]="post.avatar" alt="">
+    <div class="content" [innerHTML]="post.content" ></div>
+    <div class="rating-content">
+        <div class="rating-form">
+            <div class="stars" >
+                <svg class="star" data-value="1" viewBox="0 0 24 24" >
+                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                </svg>
+                <svg class="star" data-value="2" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                </svg>
+                <svg class="star" data-value="3" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                </svg>
+                <svg class="star" data-value="4" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                </svg>
+                <svg class="star" data-value="5" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                </svg>
+            </div>
+            <textarea placeholder="Mô tả trải nghiệm của bạn (không bắt buộc)" maxlength="500" [(ngModel)]="contentpoinrating"></textarea>
+           
+            <div class="char-count">
+                <span id="current-count">0</span> / 500
+            </div>
+            <button type="submit" [class.enabled]="checkCondition" disabled (click)="createPoinRating()">Gửi</button>
+        </div>
+    
+        
+    </div>
+   </div>
+
+
+<app-footer-user></app-footer-user>

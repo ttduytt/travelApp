@@ -1,0 +1,112 @@
+
+<app-header-user></app-header-user>
+
+
+<video [muted]="'muted'" controls loop autoplay [src]="'assets/FLYCAM TOÀN CẢNH CHÙA TÂY THIÊN - TAM ĐẢO MỚI NHẤT (2024) - Nhật Đông Tv.mp4'"></video>
+
+<div class="content">
+    <div class="container">
+        <h1>LIVE FULLY IN VIETNAM</h1>
+        <p>Vietnam opens its door widely to welcome visitors all around the world! Starting from 15th August 2023, Vietnam extends e-visa validity to 90 days and unilateral visa exemption will be valid in 45 days!</p>
+        <p>We are more than happy to welcome you all here and admire our stunning landscapes, free your soul on white sandy beaches, experience our unique and beautiful culture and meet the people in the most friendly country. Particularly, to indulge in our scrumptious cuisine at Michelin rated restaurants or to join us in outstanding mega culture, music, sports and tourism events!</p>
+        <p>Let’s live to the fullest in Vietnam!</p>
+        <div class="buttons">
+            <button class="btn">All</button>
+            <button class="btn" (click)="getTypePost('khám phá')">Explore</button>
+            <button class="btn" (click)="getTypePost('kỳ nghỉ')">Relax</button>
+            <button class="btn">Play</button>
+        </div>
+    </div>
+</div>
+
+<div class="content_place">
+    <div class="overlay_content_place"></div>
+    <div class="grid-container">
+        <div *ngFor="let post of posts" class="grid-item">
+            <img [src]="post.avatar" alt="">
+            <div class="overlay">
+                <div class="category">{{post.category}}</div>
+                <div class="title">{{post.title}}</div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+<div class="content_event">
+    <section class="whats-on">
+        <h1>WHAT'S ON</h1>
+        <p>Check out upcoming events in Vietnam</p>
+        <div class="events">
+            <div class="event">
+                <img src="https://cdn3.ivivu.com/2023/12/du-lich-binh-dinh-ivivu1.jpeg" alt="Ho Chi Minh City River Festival 2024">
+                <div class="event-info">
+                    <p>31 May 2024 - 10 Jun 2024</p>
+                    <h2>HO CHI MINH CITY RIVER FESTIVAL 2024</h2>
+                </div>
+            </div>
+            <div class="event">
+                <img src="https://cdn3.ivivu.com/2023/12/du-lich-binh-dinh-ivivu1.jpeg" alt="Ninh Binh Tourism Week 2024">
+                <div class="event-info">
+                    <p>01 May 2024 - 01 Jun 2024</p>
+                    <h2>NINH BINH TOURISM WEEK 2024</h2>
+                </div>
+            </div>
+        </div>
+        <div class="months">
+            <span>JUN</span>
+            <span>JUL</span>
+            <span>AUG</span>
+            <span>SEP</span>
+            <span>OCT</span>
+        </div>
+        <button class="view-all">VIEW ALL EVENTS</button>
+    </section>
+</div>
+
+
+<div id="image-container" class="image-container">
+    <img [src]="currentImage" alt="Panorama Image">
+</div>
+
+
+<div class="content_travel_tip">
+    <div class="travel-tips">
+        <h1>TRAVEL TIPS</h1>
+        <p>Prepare for your trip with these practical articles</p>
+        <div class="tips-container">
+            <div class="tip">
+                <img src="https://vietnam.travel/sites/default/files/2019-11/Visas_1.jpg" alt="Visas Icon">
+                <p>VISAS</p>
+            </div>
+            <div class="tip" (click)="getOnepost('Transport')">
+                <img src="https://vietnam.travel/sites/default/files/2019-11/Transport_1.jpg" alt="Transport Icon">
+                <p>TRANSPORT</p>
+            </div>
+            <div class="tip" (click)="getOnepost('Weather')" >
+                <img src="https://vietnam.travel/sites/default/files/2019-11/Weather%20white_1.jpg" alt="Weather Icon">
+                <p>WEATHER</p>
+            </div>
+            <div class="tip">
+                <img src="https://vietnam.travel/sites/default/files/2019-11/Health%20and%20Safety_0.jpg" alt="Safety Icon">
+                <p>SAFETY</p>
+            </div>
+            <div class="tip">
+                <img src="https://vietnam.travel/sites/default/files/2019-11/History%20white_0.jpg" alt="History Icon">
+                <p>HISTORY</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<df-messenger
+  intent="WELCOME"
+  chat-title="conversation"
+  agent-id="0eff638e-d15c-4372-94c0-f84f7b414a14"
+  language-code="vi"
+></df-messenger>
+
+<app-footer-user></app-footer-user>
+
+

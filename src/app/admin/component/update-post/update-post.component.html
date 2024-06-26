@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<div class="wrapper">
+    <div class="content">
+        
+            <div class="title_post">
+                <label for="">nhập tiêu đề bài viết</label>
+                <input type="text" name="title" [(ngModel)]="post.title">
+                
+                
+            </div>
+            <div class="avatar_post">
+                <label for="">chọn ảnh bài viết</label>
+                <input type="file" name="" id="">
+            </div>
+            <div class="category_post">
+                <label for="">chọn loại bài viết</label>
+                <select [(ngModel)]="post.category">
+                    <option *ngFor="let category of categorys" [value]="category.category">{{category.category}}</option>
+                </select>
+            </div>
+            <div class="content_post">
+                
+                <ckeditor [editor]="Editor" [(ngModel)]="post.content" ></ckeditor>
+    
+            </div>
+    
+            <div class="btadd">
+                <button type="button"  (click)="updatePost(post._id)">update post</button>
+            </div>
+        </div>
+ 
+</div>
+
+
+
+

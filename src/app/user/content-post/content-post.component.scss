@@ -1,0 +1,92 @@
+
+.wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.content{
+    width: 50%;
+}
+
+.rating-content{
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+}
+
+.rating-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.star {
+    width: 40px;
+    height: 40px;
+    fill: gray; /* Màu mặc định của ngôi sao */
+    cursor: pointer;
+    transition: fill 0.3s;
+}
+
+/* Hover vào ngôi sao bất kỳ */
+.highlighted {
+    /* Your CSS properties here */
+    fill: gold; /* For example, changes fill color to yellow */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.char-count {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #ccc;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    cursor: no-drop;
+}
+
+button.enabled {
+    background-color: green;
+    cursor: pointer;
+}
+
+.img_avatar{
+    width: 100vw;
+    height: 632px;
+    object-fit: cover;
+    margin: 50px 0;
+}

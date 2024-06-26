@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="wrapper">
+    <div class="content" [formGroup]="postForm">
+        
+    <div class="formAddCategory">
+        <div class="title_post">
+            <label for="">nhập thể loại bài viết</label>
+            <input type="text" id="" name="title"    formControlName="category">
+        </div>
+
+        <div class="btadd">
+            <button id="btcreate" type="button" class="btn btn-success"  (click)="createCategory()">create post</button>
+        </div>
+    </div>
+
+            <div class="search-container">
+                <label for="search">Search:</label>
+                <input type="text" id="search" class="search-input" placeholder="Enter search term...">
+            </div>
+            <table>
+              <thead>
+                  <tr>
+                      <th>Id thể loại</th>
+                      <th>thể loại</th>
+                      <th>ngày tạo</th>
+                      <th>Xóa</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngIf="categorys&& categorys.length>0 ; else nodata">
+                <tr *ngFor="let category of categorys">
+                    <td>{{ category._id }}</td>
+                    <td>{{ category.category }}</td>
+                    <td>{{category.createdAt | date: 'dd/MM/yyyy':'UTC'}}</td>
+                    <!-- <td><button class="btn btn-danger" (click)="post._id && deletePost(post._id)">XÓA</button></td> -->
+                </tr>
+                </ng-container>
+               
+              </tbody>
+            </table>
+            <ng-template #nodata>
+                <p>Không có dữ liệu để hiển thị.</p>
+              </ng-template>
+            <div class="pagination">
+              <a href="#">&laquo; Previous</a>
+              <a href="#" class="active">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">Next &raquo;</a>
+            </div>
+    </div>
+ 
+</div>
+
+
+
+
