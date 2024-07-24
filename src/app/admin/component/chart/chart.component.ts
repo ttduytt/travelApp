@@ -29,9 +29,11 @@ export class ChartComponent {
     this.service.getPoinStatistics('http://localhost:3000/poinRating/get/Statistics')
     .subscribe ((data)=>{
      this.valueCharts= data.map((item)=>{
-        return {value:(item.totalPoinrating/item.count)/5*100 , title:item.title}
+        return {value:(item.totalPoinrating/item.count)/5*100 , title:item.title, dtb:Math.floor((item.totalPoinrating/item.count) * 10) / 10}
+        
       });
+      console.log(this.valueCharts)
     });
-   
+    
   }
 }

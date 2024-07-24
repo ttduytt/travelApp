@@ -1,6 +1,6 @@
-<app-header></app-header>
+<app-header (sendData)="handleData($event)"></app-header>
 
-<div class="wrapper">
+<div class="wrapper"  [class.close-navbar]="isclose">
     <div class="content">
         
             <div class="title_post">
@@ -11,7 +11,7 @@
             </div>
             <div class="avatar_post">
                 <label for="">chọn ảnh bài viết</label>
-                <input type="file" name="" id="">
+                <input (change)="onFileSelected($event)" type="file" name="" id="">
             </div>
             <div class="category_post">
                 <label for="">chọn loại bài viết</label>
@@ -21,12 +21,23 @@
             </div>
             <div class="content_post">
                 
-                <ckeditor [editor]="Editor" [(ngModel)]="post.content" ></ckeditor>
+                <div class="main-container">
+                    <div class="editor-container editor-container_document-editor" #editorContainerElement>
+                        <div class="editor-container__toolbar" #editorToolbarElement></div>
+                        <div class="editor-container__editor-wrapper">
+                            <div class="editor-container__editor">
+                                <div #editorElement>
+                                    <ckeditor [(ngModel)]="post.content" [editor]="Editor" [config]="config" (ready)="onReady($event)" *ngIf="isLayoutReady" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     
             </div>
     
             <div class="btadd">
-                <button type="button"  (click)="updatePost(post._id)">update post</button>
+                <button type="button"  class="btn btn-success"  (click)="upLoadAndGetUrl(post._id)">Cập nhật bài viết</button>
             </div>
         </div>
  

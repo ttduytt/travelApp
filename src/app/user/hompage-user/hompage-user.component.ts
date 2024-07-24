@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+
 @Component({
   selector: 'app-hompage-user',
   standalone: true,
@@ -19,7 +20,11 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 export class HompageUserComponent implements AfterViewInit {
   constructor (private apiurlService:ApiUserService, private router:Router){}
   posts:Post[]=[]
-   post:any
+  post:any
+  eventPost:Post[]=[]
+  dichchuyen=0
+  choosebtn:any
+
   images: string[] = [
     'https://danviet.mediacdn.vn/2020/6/5/1-15913419719771038118165.jpg',
     'https://ik.imagekit.io/tvlk/blog/2023/07/chua-tay-thien-8.jpg?tr=dpr-2,w-675',
@@ -35,12 +40,14 @@ export class HompageUserComponent implements AfterViewInit {
 
   ngOnInit(): void {
     this.startImageRotation();
-    this.getTypePost('khám phá')
+    this.getTypePost('khám phá');
+    this.getEventPost()
   }
 
   ngAfterViewInit(): void {
     window.addEventListener('dfMessengerLoaded', this.onDfMessengerLoaded);
   }
+
 // hàm chỉnh chiều cao chatbox
   onDfMessengerLoaded(event: Event) {
     const messenger = document.querySelector("df-messenger") as HTMLElement;
@@ -57,6 +64,14 @@ export class HompageUserComponent implements AfterViewInit {
     this.apiurlService.getTypePost(`http://localhost:3000/post/get/${keyword}`)
     .subscribe((data)=>{
       this.posts=data
+      this.choosebtn=keyword
+    })
+  }
+
+  getEventPost(){
+    this.apiurlService.getTypePost(`http://localhost:3000/post/get/sự kiện`)
+    .subscribe((data)=>{
+      this.eventPost=data
     })
   }
 
@@ -68,7 +83,6 @@ export class HompageUserComponent implements AfterViewInit {
     })
     
   }
-
 
 
   ngOnDestroy(): void {
@@ -87,6 +101,25 @@ export class HompageUserComponent implements AfterViewInit {
       clearInterval(this.intervalId);
     }
   }
+
+  slideRight(){
+    if( (this.eventPost.length*50)-(this.dichchuyen+50)>=100){
+      this.dichchuyen+=50
+      console.log(this.dichchuyen)
+      const slide= document.querySelector('.slide') as HTMLElement
+      slide.style.transform=`translateX(${this.dichchuyen*-1}%)`
+    }
+  }
+
+  slideLeft(){
+    if((this.dichchuyen-50)>=0){
+      this.dichchuyen-=50
+      const slide= document.querySelector('.slide') as HTMLElement
+      slide.style.transform=`translateX(${this.dichchuyen*-1}%)`
+    }
+
+  }
+
 
   //To minimise the height of chatbox
 // $(document).ready(function() {

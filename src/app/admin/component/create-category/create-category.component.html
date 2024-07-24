@@ -1,7 +1,7 @@
-<app-header></app-header>
+<app-header (sendData)="handleData($event)"></app-header>
 
-<div class="wrapper">
-    <div class="content" [formGroup]="postForm">
+<div class="wrapper"  [class.close-navbar]="isclose">
+    <form class="content" [formGroup]="postForm" (ngSubmit)="onSubmitForm()">
         
     <div class="formAddCategory">
         <div class="title_post">
@@ -10,15 +10,15 @@
         </div>
 
         <div class="btadd">
-            <button id="btcreate" type="button" class="btn btn-success"  (click)="createCategory()">create post</button>
+            <button id="btcreate" type="submit" class="btn btn-success" >Thêm thể loại</button>
         </div>
     </div>
 
             <div class="search-container">
                 <label for="search">Search:</label>
-                <input type="text" id="search" class="search-input" placeholder="Enter search term...">
+                <input type="text" id="search" class="search-input" placeholder="Enter search term..." (input)="filterTable()">
             </div>
-            <table>
+            <table id="dataTable">
               <thead>
                   <tr>
                       <th>Id thể loại</th>
@@ -29,30 +29,37 @@
               </thead>
               <tbody>
                 <ng-container *ngIf="categorys&& categorys.length>0 ; else nodata">
-                <tr *ngFor="let category of categorys">
+                <tr *ngFor="let category of categorys | paginate: { itemsPerPage: 5, currentPage: page }">
                     <td>{{ category._id }}</td>
                     <td>{{ category.category }}</td>
                     <td>{{category.createdAt | date: 'dd/MM/yyyy':'UTC'}}</td>
-                    <!-- <td><button class="btn btn-danger" (click)="post._id && deletePost(post._id)">XÓA</button></td> -->
+                    <td><button class="btn btn-danger" type="button" (click)="category._id && OpenModal(category._id)">XÓA</button></td>
                 </tr>
                 </ng-container>
                
               </tbody>
             </table>
+            <div class="pagination-controls">
+                <pagination-controls class="pagination-spreads" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
+              </div>
             <ng-template #nodata>
                 <p>Không có dữ liệu để hiển thị.</p>
               </ng-template>
-            <div class="pagination">
-              <a href="#">&laquo; Previous</a>
-              <a href="#" class="active">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">Next &raquo;</a>
-            </div>
-    </div>
+    </form>
  
 </div>
 
+
+ <!-- The Modal -->
+ <div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+      <span (click)="closeModal()" class="close">&times;</span>
+      <h2>Cảnh báo</h2>
+      <p>Bạn có chắc rằng muốn xóa dữ liệu này!</p>
+      <button class="agreeDelete"  (click)="deleteCategory(idCategoryDelete)">Xóa</button>
+  </div>
+</div>
 
 
 

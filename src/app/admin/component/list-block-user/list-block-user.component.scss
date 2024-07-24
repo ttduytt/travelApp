@@ -111,9 +111,94 @@
   
 }
 
-.wrapper.close {
+.wrapper.close-navbar {
     padding-left: 0;
     width: 100vw;
     font-size: 1rem;
     font-weight: 400;
 }
+
+
+
+.pagination-controls {
+    display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+ }
+
+
+ .pagination-spreads::ng-deep li {
+    border: 1px solid #dee2e6;
+ }
+
+ .pagination-spreads::ng-deep li a{
+    color: #007bff;
+ }
+
+ .pagination-spreads::ng-deep li:hover,
+ .pagination-spreads::ng-deep li a:hover{
+
+  background-color: #e9ecef;
+ }
+
+ 
+
+ .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.agreeDelete{
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    border: none;
+    background-color: #dc3545;
+    border-radius: 5px;
+}
+
+.agreeDelete:hover{
+    background-color: #f01329;
+}
+
+
+ 

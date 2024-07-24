@@ -6,4 +6,5 @@ export interface Post {
     avatar:string
     view:number
     createdAt?:Date
+    updatedAt?:Date
 }

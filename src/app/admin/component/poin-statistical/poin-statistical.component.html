@@ -1,12 +1,12 @@
 <app-header (sendData)="handleData($event)"></app-header>
 
-<div class="wrapper" [class.dark]="isdark" [class.close]="isclose">
+<div class="wrapper"  [class.close-navbar]="isclose">
     <div class="content">
         <div class="search-container">
             <label for="search">Search:</label>
-            <input type="text" id="search" class="search-input" placeholder="Enter search term...">
+            <input type="text" id="search" class="search-input" placeholder="Enter search term..." (input)="filterTable()">
         </div>
-        <table>
+        <table id="dataTable">
           <thead>
               <tr>
                   <th>Id</th>
@@ -27,12 +27,8 @@
           </tbody>
         </table>
         
-        <div class="pagination">
-          <a href="#">&laquo; Previous</a>
-          <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">Next &raquo;</a>
+        <div class="pagination-controls">
+          <pagination-controls class="pagination-spreads" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
         </div>
         
       </div>

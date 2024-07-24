@@ -1,0 +1,248 @@
+.body {
+    background-color: #2c2c2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+ .notFind{
+  width: 100vw;
+  text-align: center;
+ }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn {
+    background-color: #3a3a3a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn .icon {
+    height: 20px;
+    fill: white;
+  }
+  
+  .btn:hover {
+    background-color: #505050;
+  }
+  
+  .refresh {
+    background-color: #d86f6f;
+  }
+  
+  .refresh:hover {
+    background-color: #bf5b5b;
+  }
+  
+
+  .list-posts{
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    margin: 0;
+    padding-top: 18px;
+    padding-bottom: 20px;
+  min-height: 100vh;
+   
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    padding: 0 10px;
+  }
+
+.item {
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+    height: auto;
+    overflow: hidden; 
+    margin: 10px 5px;
+    cursor: pointer;
+}
+@media (min-width: 1024px) { /* Điều chỉnh theo kích thước màn hình laptop */
+  .item {
+    height: 380px;
+    margin: 10px 5px;
+  }
+}
+.item img {
+    width: 100%;
+    height: 70%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.item img:hover {
+  transform: scale(1.1);
+}
+
+.item h3 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.item p {
+    font-size: 14px;
+    margin: 0;
+}
+.item> svg{
+  height: 18px;
+}
+
+.item_arrange{
+  position: relative;
+}
+
+
+.menu {
+  width: 200px;
+  height: 130px;
+  background-color: #333;
+  color: white;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  box-sizing: border-box;
+ display: flex;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: top left;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.show{
+  transform-origin: top left;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.menu-item-child {
+  display: flex;
+  align-items: center;
+}
+
+.icon-new, .icon-fire, .icon-anpha {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border-radius: 4px;
+  text-align: center;
+  fill: #bdbdbd;
+}
+
+.text {
+  flex-grow: 1;
+}
+
+.icon-new {
+  background-color: #444;
+}
+
+.item_categoty{
+  position: relative;
+}
+
+.listCategory {
+  background-color: #222;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  z-index: 1;
+  position: absolute;
+  top: 100%;
+  left: -190%;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s , transform 0.5s;
+  transform-origin: top center;
+}
+
+.showCategory{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s , transform 0.5s;
+  transform-origin: top center;
+}
+
+.container {
+  width: 600px;
+  margin: auto;
+}
+
+.title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.button {
+  padding: 10px 20px;
+  border: 2px solid #FFD700;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #FFD700;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.button:hover {
+  background-color: #FFD700;
+  color: #222;
+}
+
+.active >.icon-fire{
+ fill:  #ff4f16;
+}
+
+.active >.icon-new{
+  color: rgb(71, 111, 243);
+}
+
+.active >.icon-anpha{
+  fill: rgb(67, 214, 67);
+}
+
+.active_category{
+  background-color: #FFD700;
+  color: black;
+}
+
+.countPost{
+  width: 100%;
+  text-align: center;
+}

@@ -1,6 +1,6 @@
-<app-header></app-header>
+<app-header (sendData)="handleData($event)"></app-header>
 
-<div class="wrapper">
+<div class="wrapper"   [class.close-navbar]="isclose">
     <div class="content">
         <div class="search-container">
             <label for="search">Search:</label>
@@ -24,23 +24,27 @@
                 <td>{{ post.title }}</td>
                 <td>{{ post.category }}</td>
                 <td>{{post.createdAt | date: 'dd/MM/yy'}}</td>
-                <td><img width="80px" [src]="post.avatar" alt="Post Image"></td>
+                <td><img width="80px" [src]="post.avatar + '?' + post.updatedAt" alt="Post Image"></td>
                 <td><button class="btn btn-success" routerLink="/post/formUpdate" [state]="{post}">SỬA</button></td>
-                <td><button class="btn btn-danger" (click)="post._id && deletePost(post._id)">XÓA</button></td>
+                <td><button class="btn btn-danger" (click)="post._id && OpenModal(post._id)">XÓA</button></td>
+
             </tr>
           </tbody>
         </table>
         <div class="pagination-controls">
           <pagination-controls class="pagination-spreads" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
         </div>
-        <!-- <div class="pagination">
-          <a href="#">&laquo; Previous</a>
-          <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">Next &raquo;</a>
-        </div> -->
-        
       </div>
 </div>
 
+
+ <!-- The Modal -->
+ <div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+      <span (click)="closeModal()" class="close">&times;</span>
+      <h2>Cảnh báo</h2>
+      <p>Bạn có chắc rằng muốn xóa dữ liệu này!</p>
+      <button class="agreeDelete"  (click)="deletePost(idPostDelete)">Xóa</button>
+  </div>
+</div>

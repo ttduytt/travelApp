@@ -1,7 +1,12 @@
-<app-header></app-header>
+<app-header (sendData)="handleData($event)"></app-header>
 
-<div class="wrapper">
-    <div class="content" [formGroup]="postForm">
+<div class="wrapper"  [class.close-navbar]="isclose">
+    <div class="loading-bar" [class.loadActive]="isLoading">
+        <div class="loading-dot"></div>
+    </div>
+    <form class="content" [formGroup]="postForm" (ngSubmit)="onSubmitForm()">
+  
+    
         
             <div class="title_post">
                 <label for="">nhập tiêu đề bài viết</label>
@@ -9,7 +14,7 @@
             </div>
             <div class="avatar_post">
                 <label for="">chọn ảnh bài viết</label>
-                <input type="file" name="" id=""  formControlName="avatar">
+                <input type="file" name="" id=""  (change)="onFileSelected($event)">
                 <img [src]="imageUrl" *ngIf="imageUrl" alt="Preview Image" style="max-width: 300px;">
             </div>
             <div class="category_post">
@@ -20,16 +25,33 @@
             </div>
             <div class="content_post">
                 
-                <ckeditor formControlName="content" [editor]="Editor" data="<p>nhập nội dung</p>"></ckeditor>
+                <div class="main-container">
+                    <div class="editor-container editor-container_document-editor" #editorContainerElement>
+                        <div class="editor-container__toolbar" #editorToolbarElement></div>
+                        <div class="editor-container__editor-wrapper">
+                            <div class="editor-container__editor">
+                                <div #editorElement>
+                                    <ckeditor formControlName="content" [editor]="Editor" [config]="config" (ready)="onReady($event)" *ngIf="isLayoutReady" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
     
             </div>
     
             <div class="btadd">
-                <button type="button"  (click)="createPost()">create post</button>
+                <button type="submit" class="btn btn-success">Thêm bài viết</button>
             </div>
-        </div>
+        </form>
  
 </div>
 
 
+<script src="https://cdn.ckbox.io/ckbox/latest/ckbox.js"></script>
 
+
+  
+
+  

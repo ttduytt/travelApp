@@ -1,0 +1,37 @@
+<app-header (sendData)="handleData($event)"></app-header>
+
+<div class="wrapper" [class.close-navbar]="isclose">
+    <div class="content">
+        <div class="search-container">
+            <label for="search">Search:</label>
+            <input type="text" id="search" class="search-input" placeholder="Enter search term..." (input)="filterTable()">
+        </div>
+        <table id="dataTable">
+          <thead>
+              <tr>
+                  <th>Tên</th>
+                  <th>Loại dịch vụ</th>
+                  <th>Ngày đăng ký</th>
+                  <th>Xem chi tiết</th>
+                  <th>Từ chối</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Pending of listPending | paginate: { itemsPerPage: 5, currentPage: page }">
+                <td>{{ Pending.name }}</td>
+                <td>{{ Pending.kindService }}</td>
+                <td>{{ Pending.createdAt |date: 'dd/MM/yyyy':'UTC'}}</td>
+                <td><button class="btn btn-success" [routerLink]="['/detail/pendingPost', Pending._id ]">Chi tiết</button></td>
+                <td><button class="btn btn-danger" (click)="refusePendingPost(Pending._id)">Từ chối</button></td>
+
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="pagination-controls">
+          <pagination-controls class="pagination-spreads" previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls>
+        </div>
+        
+      </div>
+</div>
+

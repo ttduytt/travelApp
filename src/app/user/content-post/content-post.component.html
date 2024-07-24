@@ -1,9 +1,74 @@
 
-<app-header-user></app-header-user>
-   <div class="wrapper" >
-    <img class="img_avatar" *ngIf="post.avatar" [src]="post.avatar" alt="">
-    <div class="content" [innerHTML]="post.content" ></div>
-    <div class="rating-content">
+<app-header-user #headerUser></app-header-user>
+   <div class="wrapper">
+    <img class="img_avatar"  [src]="post.avatar" alt="">
+
+    <div class="menu-controller">
+      <ul>
+        <li (click)="controllerActive('noidung')" [class.active]="controller==='noidung' ">NỘI DUNG</li>
+        <li (click)="controllerActive('danhgia')" [class.active]="controller==='danhgia' ">ĐÁNH GIÁ</li>
+        <li (click)="controllerActive('binhluan')" [class.active]="controller==='binhluan' ">BÌNH LUẬN</li>
+        <li (click)="controllerActive('goiy')" [class.active]="controller==='goiy' ">GỢI Ý</li>
+      </ul>
+    </div>
+
+    <div id="noidung" class="content" [innerHTML]="post.content" ></div>
+
+    <div id="danhgia" class="rating-content">
+
+        <div class="statisticalPoin">
+            <h2 class="poin" *ngIf="averagePoin">{{averagePoin}}</h2>
+            <div *ngIf="poinPost" class="child_stars">
+
+              <div >
+                <svg class="child-star-item" data-value="1" viewBox="0 0 24 24" >
+                  <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                </svg>
+                <svg class="child-star-item" data-value="2" viewBox="0 0 24 24" >
+                  <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                  </svg>
+                  <svg class="child-star-item" data-value="3" viewBox="0 0 24 24" >
+                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                    </svg>
+                    <svg class="child-star-item" data-value="4" viewBox="0 0 24 24" >
+                      <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                      </svg>
+                      <svg class="child-star-item" data-value="5" viewBox="0 0 24 24" >
+                        <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                        </svg>
+              </div>
+                 
+                    <svg class="child-star-overlay" viewBox="0 0 24 24" >
+                          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                        </svg>
+                   
+                    <svg class="child-star-overlay" viewBox="0 0 24 24" >
+                        <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                      </svg>
+                  
+                
+                    <svg class="child-star-overlay" viewBox="0 0 24 24" >
+                      <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                    </svg>
+                  
+                
+                    <svg class="child-star-overlay" viewBox="0 0 24 24" >
+                      <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                    </svg>
+                 
+            
+                      <svg class="child-star-overlay" viewBox="0 0 24 24" >
+                        <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21 12 17.27z"/>
+                      </svg>
+              
+                
+            </div>
+            <div class="countReview" *ngIf="poinPost"> {{poinPost.count}} bài đánh giá</div>
+            <div class="haventRating" *ngIf="!poinPost"> chưa có đánh giá nào</div>
+        </div>
+     
+      
+
         <div class="rating-form">
             <div class="stars" >
                 <svg class="star" data-value="1" viewBox="0 0 24 24" >
@@ -27,12 +92,63 @@
             <div class="char-count">
                 <span id="current-count">0</span> / 500
             </div>
-            <button type="submit" [class.enabled]="checkCondition" disabled (click)="createPoinRating()">Gửi</button>
+            <button type="submit" [class.enabled]="checkCondition" [disabled]="!checkCondition" (click)="createPoinRating()">Gửi</button>
         </div>
     
         
     </div>
+    
+   
+   
+    </div>
+
+
+   <div id="binhluan" class="coment-suggest">
+    <div class="comment-section">
+        <div *ngFor="let PoinRating of PoinRatings; let i =index" class="comment">
+          <img class="user-avatar" [src]="PoinRating.image" alt="">
+          <div class="comment-details">
+            <div class="user-info">
+              <span class="username">{{PoinRating.name}}</span>
+              <span class="time">{{PoinRating.createdAt |date: 'dd/MM/yyyy':'UTC'}}</span>
+            </div>
+            <div class="comment-text">{{PoinRating.content}}</div>
+           
+          </div>
+
+          <ng-container *ngIf="i < countUserComment">
+           <div class="menuComment" (click)="openmenuComment($event)">
+            <svg class="icon-three" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
+              <div class="delete-comment" (click)="deleteRating(PoinRating._id)">
+                  <span>
+                    <svg style="width:13px; margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
+                    Xóa
+                  </span>
+              </div>
+           </div>
+          </ng-container>
+          
+        </div>
+
+     </div>  
    </div>
+
+
+
+  <div id="goiy" class="Suggest">
+    <h2>CÓ THỂ BẠN SẼ THÍCH</h2>
+    <div  class="suggest-section">
+    
+      <div   *ngFor="let listSuggestPost of listSuggestPosts" class="postSuggest" [routerLink]="['/content/post',listSuggestPost.title]">
+          <img [src]="listSuggestPost.avatar" alt="" class="imgPostSuggest">
+          <div class="overlay">
+              <p class="titlePostSuggest">{{listSuggestPost.title}}</p>
+          </div>
+      </div>
+
+   </div>
+  </div>
+
 
 
 <app-footer-user></app-footer-user>

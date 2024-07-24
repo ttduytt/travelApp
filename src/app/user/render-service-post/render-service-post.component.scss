@@ -1,0 +1,125 @@
+.content * {
+    box-sizing: border-box;
+}
+.container{
+   display: flex;
+   justify-content: center;
+}
+
+svg{
+   width: 15px;
+   height: 15px;
+   margin-right: 10px;
+   fill: #40b9eb;
+}
+
+.content{
+   width: 70%;
+
+}
+ 
+ h2{
+    text-align: center;
+ }
+
+ .rating{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+ }
+
+ .view,
+ .like{
+ display: flex;
+ align-items: center;
+ }
+
+ .view{
+   margin-right: 30px;
+
+ }
+
+ .view span,
+ .like span{
+   height: 100%;
+ }
+
+ .address{
+   margin-top: 30px;
+   font-size: 17px;
+   display: flex;
+   justify-content: space-between;
+   padding: 15px 0;
+   border-top: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
+ }
+
+ .address >div{
+   display: flex;
+   align-items: center;
+   height: 30px;
+ }
+
+ .contact{
+   display: flex;
+   font-size: 18px;
+   padding: 15px 0;
+ }
+
+ .phone{
+   margin-right: 30px;
+ }
+
+ .slideImg{
+   width: 100%;
+   position: relative;
+   overflow: hidden;
+ }
+
+ .wrap-slide{
+   width: 100%;
+   display: flex;
+   transition: transform .3s ease;
+ }
+
+ .wrap-slide img{
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+   flex: 0 0 100%;
+
+ }
+
+
+
+ .contentPost{
+   margin-top: 20px;
+ }
+
+
+ .left-controller,
+ .right-controller{
+   width: 40px;
+   height: 40px;
+   background-color: rgba(0 , 0, 0, 0.5);
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+ }
+
+ .left-controller:hover,
+ .right-controller:hover{
+   background-color: black;
+ }
+
+ .left-controller{
+   left: 10px;
+ }
+
+ .right-controller{
+   right: 10px;
+ }

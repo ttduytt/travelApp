@@ -105,6 +105,7 @@
     height: 80%;
     width: 48px;
     border-radius: 24px;
+    position: relative;
 }
 
 .logo_notification{
@@ -162,7 +163,7 @@
     overflow: scroll;
 }
 
-.navbar.close{
+.navbar.close-navbar{
     transform: translateX(-100%);
 }
 
@@ -206,10 +207,7 @@
     background-color: #202124;
   
 }
-.darkmode * {
-    color: #e3e3e3;
-    fill: white;
-}
+
 
 .darkmode .lis_manager >li:hover{
     background-color: #3c4043;
@@ -217,4 +215,42 @@
     border-radius: 5px;
 }
 
+
+.adminLogout{
+    position: absolute;
+    bottom: -52px;
+    right: 50%;
+    width: 170px;
+    transform: translateX(50%);
+    visibility: hidden;
+}
+
+.adminLogout.active{
+    visibility: visible;
+}
+
+.adminLogout:hover >div{
+    background-color: #ccc;
+}
+
+.adminLogout >div{
+    padding: 10px;
+    margin: 0 5px;
+    background-color: white;
+    box-shadow: 0 0 7px #ccc;  
+    color: #000;
+    border-radius: 5px;
+}
+
+.adminLogout >div>svg{
+    width: 17px;
+    height: 17px;
+    margin-right: 5px;
+    fill: #000;
+}
+
+.darkmode * {
+    color: #e3e3e3;
+    fill: white;
+}
 

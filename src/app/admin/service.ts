@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { Category } from '../shared/model/categoryModel';
 import { HttpHeaders } from '@angular/common/http';
 import { StatisticsPoin } from '../shared/model/Statisticspoin';
+import { Image } from '../shared/model/imageModel';
+import { PendingPost } from '../shared/model/pendingPost';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +23,8 @@ getUser(url: string): Observable<[User]> {
   return this.http.get<[User]>(url);
 }
 
-  // xóa user 
- 
+
+ // xóa
   deleteUser(url: string): Observable<any>{
     return this.http.delete(url)
   }
@@ -39,20 +41,15 @@ getUser(url: string): Observable<[User]> {
 
   // lấy bài viết 
   
-  getPost (url:string, token:string): Observable<Post[]>{
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'authorization': 'Bearer ' + token
-      }),
-    };
-    return this.http.get<Post[]>(url, httpOptions)
+  getPost (url:string): Observable<Post[]>{
+
+    return this.http.get<Post[]>(url)
   }
 
   // xóa bài viết 
-  destroyPost (url:string, id:string) {
-    return this.http.delete(url+`${id}`)
+  destroyPost(url: string, postId: string): Observable<any> {
+    return this.http.delete(`${url}${postId}`);
   }
-
   // update post
   updatePost (url:string, data:Post): Observable<Post>{
     return this.http.put<Post>(url, data)
@@ -73,5 +70,37 @@ getUser(url: string): Observable<[User]> {
   getPoinStatistics(url:string):Observable<[StatisticsPoin]>{
     return this.http.get<[StatisticsPoin]>(url)
   }
-  
+
+  createImage (url:string, data:Image):Observable<any>{
+    return this.http.post<any>(url, data)
+  }
+
+  getImages (url:string):Observable<[Image]>{
+    return this.http.get<[Image]>(url)
+  }
+
+  getPendingPostNotAccept(url:string):Observable<[PendingPost]>{
+    return this.http.get<[PendingPost]>(url)
+  }
+
+  getPendingPostAccept(url:string):Observable<[PendingPost]>{
+    return this.http.get<[PendingPost]>(url)
+  }
+
+  getPendingPostById(url: string):Observable<PendingPost>{
+    return this.http.get<PendingPost>(url)
+  }
+
+  acceptPendingPost(url:string, data:PendingPost):Observable<any>{
+    return this.http.put<any>(url,data)
+  }
+
+  logOut(url: string):Observable<any>{{
+      return this.http.get<any>(url,{ withCredentials: true })
+  }}
+ 
+  UploadImg(url:string, formData:any):Observable<any>{
+    return this.http.post<any>(url, formData)
+  }
+
 }

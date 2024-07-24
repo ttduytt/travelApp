@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { AuthserviceService } from '../../../shared/authservice.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import Cookies from 'js-cookie';
+import { HtmlComment } from 'ckeditor5';
 @Component({
   selector: 'app-list-post',
   standalone: true,
@@ -18,34 +20,50 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class ListPostComponent implements OnInit {
   posts: Post[] = [];
   page: number = 1;
+  isdark:boolean=false
+  isclose:boolean=false
+  modal: any
+  idPostDelete=''
   constructor(private services: Services, private router: Router, private sanitizer: DomSanitizer, private autheservice:AuthserviceService) {}
 
   ngOnInit(): void {
     this.showPost();
   }
 
-  async showPost() {
-    // chủ động làm mới token
-    this.autheservice.refreshToken('http://localhost:3000/auth/refresh')
-    .subscribe ((newtoken)=>{
-        this.autheservice.setToken(newtoken)
-        const token= this.autheservice.getToken()
-        if(token!==null){
-          this.services.getPost('http://localhost:3000/post/listPost',token)
-          .subscribe(data => {
-            this.posts = data;
-          });
-        }
-    })
-   
+  handleData(data: {close:boolean, dark:boolean}){
+    this.isclose= data.close
+    this.isdark= data.dark
   }
+
+  async showPost() {
+    this.services.getPost('http://localhost:3000/post/listPost')
+        .subscribe((listpost)=>{
+        this.posts=listpost
+    })
+}
+         
+    OpenModal(id:string){
+      const modal= document.querySelector('#myModal') as HTMLElement
+      modal.style.display='block'
+
+      this.idPostDelete=id
+    }
+
+    closeModal(){
+      const modal= document.querySelector('#myModal') as HTMLElement
+      modal.style.display='none'
+      this.idPostDelete=''
+    }
+   
+  
 
 
       // xóa bài viết
       deletePost (Postid:string){
         this.services.destroyPost('http://localhost:3000/post/delete/', Postid)
         .subscribe(()=>{
-          console.log('delete sucsesfuuly')
+          this.closeModal()
+          this.showPost()
         })
       }
 
@@ -66,7 +84,7 @@ export class ListPostComponent implements OnInit {
           }
           tr[i].style.display = found ? '' : 'none';
         }
-      }
+      };
     
     }
    

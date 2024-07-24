@@ -1,0 +1,64 @@
+<div class="container">
+    <form class="content" [formGroup]="postForm" (ngSubmit)="onSubmitForm()">
+        <h1>FORM ĐĂNG KÝ GIỚI THIỆU THÔNG TIN DỊCH VỤ</h1>
+
+       <div class="optionService">
+        <label style="margin: 0; margin-right: 20px;" for="">Chọn loại hình dịch vụ</label>
+        <select name="accommodation" id="accommodation" formControlName="kindService">
+            <option value="hotel">Khách sạn</option>
+            <option value="resort">Resort</option>
+            <option value="homestay">HomeStay</option>
+            <option value="homestay">Nhà hàng</option>
+            <option value="homestay">Quán CAFE</option>
+        </select>
+       </div>
+    
+        <div class="nameService">
+            <label for="">Name</label>
+            <input type="text" name="" id="" formControlName="name">
+        </div>
+    
+        <div class="contact">
+            <div class="email">
+                <label for="">Email</label>
+                <input type="email" name="" id="" formControlName="email">
+            </div>
+    
+            <div class="phone">
+                <label for="">Number</label>
+                <input type="tel" name="" id="" formControlName="number">
+            </div>
+        </div>
+    
+        <div class="address">
+            <label for="">Address</label>
+            <input type="text" name="" id="" formControlName="location">
+        </div>
+    
+        <div class="imgIntroduction">
+            <label style="margin: 0;" for="">Chọn các ảnh cho dịch vụ</label>
+            <input type="file" accept="image/*" multiple (change)="onFileChange($event)">
+        </div>
+    
+        <div class="content_post">
+            <div class="main-container">
+                <div class="editor-container editor-container_document-editor" #editorContainerElement>
+                    <div class="editor-container__toolbar" #editorToolbarElement></div>
+                    <div class="editor-container__editor-wrapper">
+                        <div class="editor-container__editor">
+                            <div #editorElement>
+                                <ckeditor [editor]="Editor" [config]="config" (ready)="onReady($event)" *ngIf="isLayoutReady" formControlName="introduce" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 30px; display: flex; width: 100%; justify-content: center;">
+            <button style="padding: 10px 30px;"  type="submit" class="btn btn-success">Đăng ký</button>
+        </div>
+    </form>
+</div>
+
+
+<app-notification-dialog [isVisible]="showDialog" [message]="notificationMessage" [reject]="linkrouter"></app-notification-dialog>

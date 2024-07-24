@@ -235,3 +235,9 @@ body{
 .login-registor p a:hover{
     text-decoration: underline;
 }
+
+
+  .error-message {
+    color: red;  /* Màu chữ đỏ cho thông báo lỗi */
+    font-size: 14px;  /* Kích thước chữ nhỏ cho thông báo lỗi */
+  }

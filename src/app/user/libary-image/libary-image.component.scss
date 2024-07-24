@@ -1,0 +1,197 @@
+.content{
+    background-color: black;
+    width: 100%;
+    min-height: 100vh;
+
+}
+
+.title{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.title h2{
+    margin-left: 10px;
+    font-size: 35px;
+}
+
+.title svg{
+    fill: white;
+    width: 30px;
+    height: 30px;
+}
+
+.content-image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.list-image{
+    display: grid ;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    width: 90%;
+}
+
+.image-item{
+    margin: 10px;
+    cursor: pointer;
+    height: 270px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 0.2s ease;
+    filter: brightness(70%);
+}
+.image-item img:hover{
+    transform: scale(1.1);
+    filter: brightness(90%);
+}
+
+.discritions{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-weight: 500;
+    width: 100%;
+    padding: 20px 0;
+    margin-left: 20px;
+}
+
+.name-image{
+    margin: 0;
+    padding: 0;
+}
+
+.view{
+    font-style: italic;
+}
+
+.name-image svg{
+    width: 20px;
+    fill: goldenrod;
+}
+
+.overlay{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6); /* Màu đen với độ mờ 50% */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    flex-wrap: wrap;
+}
+
+.active{
+    visibility: visible;
+    opacity: 1;
+   
+}
+
+.slide-image{
+    width: 70%;
+    height: 75%;
+    position: relative;
+    overflow:hidden
+}
+
+.wrap-slide{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: nowrap; 
+    transition: transform 0.3s ease; /* Hiệu ứng di chuyển */
+}
+
+.wrap-slide img{
+    width: 100%;
+    height: 100%;
+    flex: 0 0 100%;  // grow , shrink, basic : ko mở rộng, ko co lại, Kích thước cơ bản của phần tử là 100% chiều rộng của container.
+    object-fit: cover; /* Đảm bảo ảnh không bị biến dạng */
+}
+
+.bt-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.bt-close{
+    position: absolute;
+    top: 20px;
+    right: 90px;
+}
+
+.controller div,
+.bt-close div{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controller div svg,
+.bt-close div svg{
+    width: 80%;
+    height: 80%;
+    fill: black ;
+}
+
+.controller{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menuListImg{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.menuListImg img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin: 5px;
+}
+
+.imgActive{
+    border: 1px solid gold;
+}
+
+.iconheart{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.iconheart svg{
+    width: 20px;
+    fill: gold;
+}
+

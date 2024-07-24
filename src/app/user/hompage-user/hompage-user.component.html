@@ -11,10 +11,9 @@
         <p>We are more than happy to welcome you all here and admire our stunning landscapes, free your soul on white sandy beaches, experience our unique and beautiful culture and meet the people in the most friendly country. Particularly, to indulge in our scrumptious cuisine at Michelin rated restaurants or to join us in outstanding mega culture, music, sports and tourism events!</p>
         <p>Let’s live to the fullest in Vietnam!</p>
         <div class="buttons">
-            <button class="btn">All</button>
-            <button class="btn" (click)="getTypePost('khám phá')">Explore</button>
-            <button class="btn" (click)="getTypePost('kỳ nghỉ')">Relax</button>
-            <button class="btn">Play</button>
+            <button class="btn" [class.active-btn]=" choosebtn==='ẩm thực' " (click)="getTypePost('ẩm thực')">Ẩm thực</button>
+            <button class="btn" [class.active-btn]=" choosebtn==='khám phá' " (click)="getTypePost('khám phá')">Khám phá</button>
+            <button class="btn" [class.active-btn]=" choosebtn==='kỳ nghỉ' "(click)="getTypePost('kỳ nghỉ')">Kỳ nghỉ</button>
         </div>
     </div>
 </div>
@@ -22,9 +21,9 @@
 <div class="content_place">
     <div class="overlay_content_place"></div>
     <div class="grid-container">
-        <div *ngFor="let post of posts" class="grid-item">
+        <div *ngFor="let post of posts.slice(0,5)" class="grid-item">
             <img [src]="post.avatar" alt="">
-            <div class="overlay">
+            <div [routerLink]="['/content/post',post.title]" class="overlay">
                 <div class="category">{{post.category}}</div>
                 <div class="title">{{post.title}}</div>
             </div>
@@ -36,32 +35,33 @@
 
 <div class="content_event">
     <section class="whats-on">
-        <h1>WHAT'S ON</h1>
-        <p>Check out upcoming events in Vietnam</p>
+        <h1>SỰ KIỆN NỔI BẬT</h1>
+        <p>Hãy xem những lễ hội và sự kiện nổi bật ở Tây Thiên</p>
         <div class="events">
-            <div class="event">
-                <img src="https://cdn3.ivivu.com/2023/12/du-lich-binh-dinh-ivivu1.jpeg" alt="Ho Chi Minh City River Festival 2024">
-                <div class="event-info">
-                    <p>31 May 2024 - 10 Jun 2024</p>
-                    <h2>HO CHI MINH CITY RIVER FESTIVAL 2024</h2>
-                </div>
+            <div class="controller">
+                <div (click)="slideLeft()" class="controller-left"><svg style="width:70%; height:70%; fill:black; margin:0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></div>
+                <div (click)="slideRight()" class="controller-right"><svg style="width:70%; height:70%; fill:black; margin:0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></div>
             </div>
-            <div class="event">
-                <img src="https://cdn3.ivivu.com/2023/12/du-lich-binh-dinh-ivivu1.jpeg" alt="Ninh Binh Tourism Week 2024">
-                <div class="event-info">
-                    <p>01 May 2024 - 01 Jun 2024</p>
-                    <h2>NINH BINH TOURISM WEEK 2024</h2>
+            <div class="wrap-slide">
+                <div class="slide">
+                    <div class="event" *ngFor="let post of eventPost"  [routerLink]="['/content/post',post.title]" >
+                        <img [src]="post.avatar" alt="Ho Chi Minh City River Festival 2024">
+                        <div class="event-info">
+                            <p>31 May 2024 - 10 Jun 2024</p>
+                            <h2>{{post.title}}</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="months">
+        <!-- <div class="months">
             <span>JUN</span>
             <span>JUL</span>
             <span>AUG</span>
             <span>SEP</span>
             <span>OCT</span>
-        </div>
-        <button class="view-all">VIEW ALL EVENTS</button>
+        </div> -->
+        <button class="view-all" routerLink="/listPost/sự kiện">XEM TẤT CẢ SỰ KIỆN</button>
     </section>
 </div>
 

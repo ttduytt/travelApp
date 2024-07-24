@@ -1,0 +1,96 @@
+
+.content * {
+    box-sizing: border-box;
+}
+
+.content{
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+
+h1{
+    text-align: center;
+}
+input{
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+label {
+    margin-top: 50px;
+    font-weight: 500;
+}
+
+input:hover{
+    border: 2px solid #85aaff;
+   box-shadow: 0 0 6px #cfdbfc;
+}
+
+.nameService,
+.address{
+    width: 100%;
+   
+}
+
+.nameService input,
+.address input{
+    width: 100%;
+}
+
+.contact{
+    display: flex;
+    justify-content: space-between;
+}
+
+.email,
+.phone{
+    width: 48%;
+}
+
+.email input,
+.phone input{
+    width: 100%;
+}
+
+.imgIntroduction{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.imgIntroduction input{
+    margin-left: 20px;
+}
+
+.optionService{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-top: 40px;
+    align-items: center;
+}
+
+select{
+    padding: 10px 0;
+    width: 200px;
+}
+
+.content_post{
+    margin-top: 30px;
+}
+.content_post ckeditor {
+    width: 100%;
+}
+
+.cke {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cke_inner {
+    padding: 10px;
+}

@@ -1,0 +1,255 @@
+.wrapper{
+    min-height: 100vh;
+    height: max-content;
+    background-color: #eceff1;
+    padding-top: 60px;
+    padding-left: 300px;
+    display: flex;
+    justify-content: center;
+    transition: padding-left 1s ease;
+ }
+
+ .wrapper.close-navbar {
+    padding-left: 0;
+    width: 100vw;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+ .content{
+    width: 90%;
+    background-color: white;
+    padding: 20px;
+    height: fit-content;
+    border-radius: 4px 4px 4px 4px;
+    margin-top: 20px;
+ }
+
+ .title_post {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    margin: 5px 0;
+}
+
+
+.title_post label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.1em;
+    width: 40%;
+}
+
+.title_post input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.formAddImage{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.table-container {
+    width: 80%;
+    margin: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: #ffff;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+}
+
+.pagination a {
+    margin: 0 2px;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container label {
+    margin-right: 5px;
+}
+
+.search-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    outline: 2px solid #bfdeff;
+}
+
+#btcreate{
+    margin-left: 30px;
+}
+
+.btadd{
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.dataimg{
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.agreeDelete{
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    border: none;
+    background-color: #dc3545;
+    border-radius: 5px;
+}
+
+.agreeDelete:hover{
+    background-color: #f01329;
+}
+
+
+
+.loading-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #e0e0e0;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    display: none;
+}
+
+.loading-bar.loadActive{
+    display: block;
+}
+
+.loading-dot {
+    width: 10px;
+    height: 5px;
+    background-color: #3498db;
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.8), 
+    0 0 20px rgba(52, 152, 219, 0.6), 
+    0 0 30px rgba(52, 152, 219, 0.4);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: moveDot 1.5s linear infinite;
+}
+
+@keyframes moveDot {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}

@@ -1,0 +1,13 @@
+
+<div class="notification-dialog" *ngIf="isVisible">
+    <div class="notificaton-content">
+        <span style="padding: 20px; width: 100%;">
+            <div class="title">Thông báo</div>
+            <div class="message">{{message}}</div>
+            <div class="btn" (click)="closeNotifiAndMove()">Ok</div>
+        </span>
+        <button class="close" (click)="closeNotifi()">
+            &times;
+        </button>
+    </div>
+</div>

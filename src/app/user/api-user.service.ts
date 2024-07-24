@@ -4,6 +4,7 @@ import { Post } from '../shared/model/postModel';
 import { Observable } from 'rxjs';
 import { User } from '../shared/model/userModel';
 import { poinRating } from '../shared/model/poinRatingModel';
+import { PendingPost } from '../shared/model/pendingPost';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class ApiUserService {
     return this.http.get<Post>(url)
   }
 
-  updateView(url:string):Observable<Post>{
-    return this.http.put<Post>(url,{})
+  updateView(url:string):Observable<any>{
+    return this.http.put<any>(url,{})
   }
 
   getPostViewhigh(url:string):Observable<[Post]>{
@@ -51,6 +52,52 @@ export class ApiUserService {
       })
     }
     return this.http.post<poinRating>(url, data, httpOptions)
+  }
+
+  getSuggestPost(url:string, id:string):Observable<[Post]>{
+    return this.http.get<[Post]>(`${url}/${id}`)
+  }
+
+  getRating(url:string): Observable<any>{
+    return this.http.get<any>(url)
+  }
+
+  getRatingWithLogin(url:string, token:string):Observable<any>{
+    const httpOptions = {
+      headers : new HttpHeaders({
+        'authorization': 'Bearer ' + token
+      })
+    }
+    return this.http.get<any>(url,httpOptions)
+  }
+
+  getPostByKeyWord(url: string, keyWord:string):Observable<[Post]>{
+    return this.http.get<[Post]>(url+keyWord)
+  }
+
+  verifyUser (url: string, token:string):Observable<any>{
+    const httpOptions = {
+      headers : new HttpHeaders({
+        'authorization': 'Bearer ' + token
+      })
+    }
+   return this.http.get<any>(url, httpOptions)
+  }
+
+  subriceService(url:string , data:PendingPost):Observable<any>{
+    return this.http.post<any>(url, data)
+  }
+
+  getServiceByType (url :string):Observable<[PendingPost]>{
+    return this.http.get<[PendingPost]>(url)
+  }
+
+  updateLike(url:string):Observable<any>{
+    return this.http.put(url, {})
+  }
+
+  deleteRating(url:string):Observable<any>{
+    return this.http.delete(url)
   }
   
 }

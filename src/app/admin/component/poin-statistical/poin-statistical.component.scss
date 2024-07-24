@@ -111,9 +111,29 @@
   
 }
 
-.wrapper.close {
+.wrapper.close-navbar {
     padding-left: 0;
     width: 100vw;
-    font-size: 1rem;
-    font-weight: 400;
 }
+
+
+.pagination-controls {
+    display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+ }
+
+
+ .pagination-spreads::ng-deep li {
+    border: 1px solid #dee2e6;
+ }
+
+ .pagination-spreads::ng-deep li a{
+    color: #007bff;
+ }
+
+ .pagination-spreads::ng-deep li:hover,
+ .pagination-spreads::ng-deep li a:hover{
+
+  background-color: #e9ecef;
+ }

@@ -1,0 +1,80 @@
+<app-header (sendData)="handleData($event)"></app-header>
+
+<div class="wrapper"   [class.close-navbar]="isclose">
+    <div class="loading-bar" [class.loadActive]="isLoading">
+        <div class="loading-dot"></div>
+    </div>
+    <div class="content" >
+        
+    <form class="formAddImage" [formGroup]="postForm" (ngSubmit)="onSubmitForm()">
+        <div class="title_post">
+            <label for="">Nhập tiêu đề cho ảnh</label>
+            <input type="text" id="" name="title"    formControlName="title">
+        </div>
+
+        <div class="title_post">
+            <label for="">Nhập chọn ảnh</label>
+            <input type="file" id="" name="title"    (change)="onFileSelected($event)">
+        </div>
+
+        <div class="btadd">
+            <button id="btcreate" type="submit" class="btn btn-success">Thêm ảnh</button>
+        </div>
+    </form>
+
+            <div class="search-container">
+                <label for="search">Search:</label>
+                <input type="text" id="search" class="search-input" placeholder="Enter search term..." (input)="filterTable()">
+            </div>
+            <table id="dataTable">
+              <thead>
+                  <tr>
+                      <th>Id</th>
+                      <th>Tiêu đề</th>
+                      <th>Ảnh</th>
+                      <th>Ngày tạo</th>
+                      <th>Thao tác</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngIf="listImages&& listImages.length>0 ; else nodata">
+                <tr *ngFor="let listImage of listImages">
+                    <td>{{ listImage._id }}</td>
+                    <td>{{ listImage.title }}</td>
+                    <td style="width:150px"><img class="dataimg" [src]="listImage.image" alt=""></td>
+                    <td>{{listImage.createdAt | date: 'dd/MM/yyyy':'UTC'}}</td>
+                    <td><button class="btn btn-danger" (click)="listImage._id && OpenModal(listImage._id)">XÓA</button></td>
+                </tr>
+                </ng-container>
+               
+              </tbody>
+            </table>
+            <ng-template #nodata>
+                <p>Không có dữ liệu để hiển thị.</p>
+              </ng-template>
+            <div class="pagination">
+              <a href="#">&laquo; Previous</a>
+              <a href="#" class="active">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">Next &raquo;</a>
+            </div>
+    </div>
+
+     <!-- The Modal -->
+ <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span (click)="closeModal()" class="close">&times;</span>
+        <h2>Cảnh báo</h2>
+        <p>Bạn có chắc rằng muốn xóa dữ liệu này!</p>
+        <button class="agreeDelete"  (click)="deleteImage(idImageDelete)">Xóa</button>
+    </div>
+  </div>
+ 
+</div>
+
+
+
+
+
